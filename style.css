@@ -1,0 +1,60 @@
+body {
+    padding-top: 80px;
+    justify-content: center;
+  }
+  .title{
+    text-align: center;
+}
+  .price{
+     text-align: end;
+  }
+
+ 
+ .img{
+     height: 180px;
+     aspect-ratio: 1;
+ }
+
+  .vitrine{
+      display: flex;
+      flex-direction: row;
+      column-gap: 20px;
+     
+      padding: 2% 20%;
+  }
+
+  .panier{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .affichagePanier{
+      display: flex;
+      flex-direction: row;
+  }
+  .total{
+     display: flex;
+     flex-direction: row;
+  }
+
+  .finalPrice{
+     border: solid red 3px;
+     font-size: 10px;
+  }
+
+  .resetALL{
+
+      height: 3dvw;
+
+
+  }
+
+  #i1 {
+    background-color: red;
+  }
+  #i2{
+    background-color: blue;
+  }
+  #i3{
+    background-color: green;
+  }
