@@ -4,11 +4,7 @@ var x = getTotalPrice();
  var y = getNumberProduct();
  document.getElementById("finalNumber").innerHTML = "Ce panier contient " + y + " produits";//init total panier
  
- for(i=0;i<3;i++){
-    
-    document.getElementById("affichagePanier").innerHTML = JSON.stringify(getBasket({id: i}));//init contenu panier
-    
-} 
+
 
 
 
@@ -34,44 +30,36 @@ function getBasket(){   // recherche item dans le localstorage
 
 
 
-function addBasket(product){ // ajout panier
+function addBasket(product){
     let basket = getBasket(); 
-    let foundProduct = basket.find(p => p.id == product.id) // recherche si produit est deja present dans le panier
-    if (foundProduct != undefined){ // produit dejà dans le panier
+    let foundProduct = basket.find(p => p.id === product.id);
+    if (foundProduct !== undefined){
         foundProduct.quantity++;
-    } else{
+    } else {
         product.quantity = 1;
-        basket.push(product); // ajout dans tableau 
+        basket.push(product);
     }
-     saveBasket(basket); // sauvegarde dans localstorage
-     
-     var x = getTotalPrice();
-    document.getElementById("finalPrice").innerHTML = "Le prix total est de "+ x + "€";
+    saveBasket(basket);
+    updateCartDisplay();
+}
 
-    var y = getNumberProduct();
-    document.getElementById("finalNumber").innerHTML = "Ce panier contient " + y + " produits";
-    
-    for(i=0;i<3;i++){
-       
-        document.getElementById("affichagePanier").innerHTML = JSON.stringify(getBasket({id: i}));
-       
+function removeOneFromBasket(productId) {
+    let basket = getBasket();
+    let foundProduct = basket.find(p => p.id === productId);
 
+    if (foundProduct) {
+        if (foundProduct.quantity > 0) {
+            foundProduct.quantity--;
+        } 
+
+       
+        updateCartDisplay();
     }
-    
 }
 
 function resetAll() {
    localStorage.clear();
    window.location.reload();
-}
-
-
-
-
-function removeFromBasket(product){  // retrait panier
-    let basket = getBasket(); // que veut-on retirer ?
-    basket = basket.filter(p => p.id != product.id); // != : on garde tout ce qui est différent de cet item id
-    saveBasket(basket); 
 }
 
 
@@ -85,7 +73,8 @@ function quantityChange(product,quantity){ // changer quantité
         } else {
              saveBasket(basket);
     
-}}}
+}}
+updateCartDisplay();}
 
 function getNumberProduct() {       //total des produits du panier
     let basket = getBasket();
@@ -114,9 +103,16 @@ function findObject(item) {
 
 }
 
-getQuantity(id){
+function updateCartDisplay() {
+    var totalPrice = getTotalPrice();
+    document.getElementById("finalPrice").innerHTML = "Le prix total est de " + totalPrice + "€";
 
-    
+    var totalProducts = getNumberProduct();
+    document.getElementById("finalNumber").innerHTML = "Ce panier contient " + totalProducts + " produits";
 
-
+    var basket = getBasket();
+    for (var i = 0; i < basket.length; i++) {
+        var productQuantity = basket[i].quantity;
+        document.getElementById("productQuantity_" + i).innerHTML = "Quantité du produit " + i + ": " + productQuantity;
+    }
 }
