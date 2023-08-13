@@ -6,6 +6,8 @@
   align-items: center;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 0.8vw;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -107,6 +109,8 @@ button{
 button:hover{
 
   background-color: rgb(97, 116, 221);
+  transform : translateY(-10px);
+
 
 }
 
