@@ -1,21 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500&display=swap');
+
 *{
   text-align: center;
   justify-content: center;
   align-items: center;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 0.8vw;
 }
 
 body {
   padding-top: 80px;
   justify-content: center;
+  color: aliceblue;
 }
 .title{
   text-align: center;
+  font-size: 3vw;
 }
 .price{
    text-align: end;
 }
 
-
+section{
+  display: flex;
+  z-index: 30;
+  
+}
 .img{
    height: 180px;
    aspect-ratio: 1;
@@ -23,15 +33,25 @@ body {
 
 .vitrine{
     display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-   
-    padding: 2% 20%;
+    flex-direction: column;
+        
+}
+
+.affichageFinal{
+  margin: 5% 0%;
+}
+
+.row1{
+
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
 }
 
 .panier{
   display: flex;
   flex-direction: column;
+  
 }
 
 .affichagePanier{
@@ -50,24 +70,113 @@ body {
 
 .resetALL{
 
-    height: 3dvw;
+  margin: 1%;
+  
 
 
 }
 
 #i1 {
-  background-color: red;
-  font-size: 150px;
-  text-align: center;
+  background-color: #ea9696;
+  
 }
 #i2{
-  background-color: blue;
-  font-size: 150px;
-  text-align: center;
+  background-color: #efc45b;
+  
 }
 #i3{
-  background-color: green;
-  font-size: 150px;
-  text-align: center;
+  background-color: #c2665b;
+ 
 }
 
+
+#i1, #i2, #i3 {
+  border-radius: 40%;
+ font-size: 150px;
+  text-align: center;
+
+}
+
+button{
+  background-color: rgba(255, 255, 255, 0.658);
+ margin: 5% 0%;
+ padding: 10PX;
+ border: white solid 2px;
+}
+
+button:hover{
+
+  background-color: rgb(97, 116, 221);
+
+}
+
+button:active{
+  background-color: rgb(73, 82, 124);
+
+}
+
+.section1{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: #3586ff;
+  overflow: hidden;
+  z-index: -1;
+  
+}
+.section1 .air{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+  background-size: 1000px 100px
+}
+.section1 .air.air1{
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+.section1 .air.air2{
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+.section1 .air.air3{
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+.section1 .air.air4{
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+
+@keyframes wave{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: 1000px; 
+  }
+}
+@keyframes wave2{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: -1000px; 
+  }
+}

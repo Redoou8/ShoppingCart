@@ -1,8 +1,8 @@
 
 var x = getTotalPrice();
- document.getElementById("finalPrice").innerHTML = "Le prix total est de "+ x + "€"; //init panier 
+ document.getElementById("finalPrice").innerHTML = "Total price :     "+ x + "€"; //init panier 
  var y = getNumberProduct();
- document.getElementById("finalNumber").innerHTML = "Ce panier contient " + y + " produits";//init total panier
+ document.getElementById("finalNumber").innerHTML = "Total products :     " + y + "items";//init total panier
  
 
 
@@ -45,17 +45,20 @@ function addBasket(product){
 
 function removeOneFromBasket(productId) {
     let basket = getBasket();
-    let foundProduct = basket.find(p => p.id === productId);
+
+    // Convert the productId to a string before searching or undefined
+    let foundProduct = basket.find(p => p.id === productId.toString());
 
     if (foundProduct) {
         if (foundProduct.quantity > 0) {
             foundProduct.quantity--;
-        } 
-
-       
-        updateCartDisplay();
+            saveBasket(basket);
+            updateCartDisplay();
+            console.log('Product removed successfully');
+        }
     }
 }
+
 
 function resetAll() {
    localStorage.clear();
@@ -105,14 +108,14 @@ function findObject(item) {
 
 function updateCartDisplay() {
     var totalPrice = getTotalPrice();
-    document.getElementById("finalPrice").innerHTML = "Le prix total est de " + totalPrice + "€";
+    document.getElementById("finalPrice").innerHTML = "Total price :     " + totalPrice + "€";
 
     var totalProducts = getNumberProduct();
-    document.getElementById("finalNumber").innerHTML = "Ce panier contient " + totalProducts + " produits";
+    document.getElementById("finalNumber").innerHTML = "Total products :     " + totalProducts + "items";
 
     var basket = getBasket();
     for (var i = 0; i < basket.length; i++) {
         var productQuantity = basket[i].quantity;
-        document.getElementById("productQuantity_" + i).innerHTML = "Quantité du produit " + i + ": " + productQuantity;
+        document.getElementById("productQuantity_" + i).innerHTML = "Product " + i + " quantity :     " + productQuantity;
     }
 }
