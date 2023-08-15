@@ -5,50 +5,74 @@
   justify-content: center;
   align-items: center;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 0.8vw;
+  font-size: 1vw;
   margin: 0;
-  padding: 0;
+  padding: 0; 
+}
+
+html{
+  width: 100vw;
+  height: 100vh;
 }
 
 body {
-  padding-top: 80px;
+  padding-top: 2%;
   justify-content: center;
   color: aliceblue;
+
+  
 }
 .title{
   text-align: center;
-  font-size: 3vw;
+  font-size: 4rem;
 }
 .price{
-   text-align: end;
+   text-align: center;
+   font-size: 3rem;
 }
 
 section{
   display: flex;
   z-index: 30;
+   flex-direction: column;
+  height: 70vh;
+ justify-content: space-evenly;
+  }
   
-}
+
 .img{
-   height: 180px;
-   aspect-ratio: 1;
+  display: flex;
+   width: 10rem;
+   height: 10rem;  
+   font-size: 10rem;
+   text-align: center;
+   vertical-align: middle;
 }
 
-.vitrine{
-    display: flex;
-    flex-direction: column;
-        
-}
+
 
 .affichageFinal{
   margin: 5% 0%;
+  font-size: 1rem;
 }
 
 .row1{
-
-  display: flex;
-  flex-direction: row;
-  gap: 10%;
+ position: relative;
+ display: flex;
+ flex-direction: row;
+ justify-content: space-around;
 }
+
+.box{
+  height: 100%;
+  
+  justify-content: space-around;
+  column-gap: 5%;
+  padding: 0;
+  margin: 0 10%;
+
+}
+
 
 .panier{
   display: flex;
@@ -59,6 +83,7 @@ section{
 .affichagePanier{
     display: flex;
     flex-direction: row;
+    
 }
 .total{
    display: flex;
@@ -67,20 +92,18 @@ section{
 
 .finalPrice{
    border: solid red 3px;
-   font-size: 10px;
+   font-size: 3rem;
 }
 
 .resetALL{
 
   margin: 1%;
-  
-
 
 }
 
 #i1 {
   background-color: #ea9696;
-  
+ 
 }
 #i2{
   background-color: #efc45b;
@@ -94,7 +117,7 @@ section{
 
 #i1, #i2, #i3 {
   border-radius: 40%;
- font-size: 150px;
+ 
   text-align: center;
 
 }
@@ -121,8 +144,8 @@ button:active{
 
 .section1{
   position: absolute;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   background: #3586ff;
   overflow: hidden;
@@ -134,9 +157,9 @@ button:active{
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 100px;
   background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
-  background-size: 1000px 100px
+  background-size: 100% 200px;
+  height: 200px; /* utiliser les 2 200px pour augmenter la hauteur des vagues */
 }
 .section1 .air.air1{
   animation: wave 30s linear infinite;
@@ -183,4 +206,76 @@ button:active{
   100%{
     background-position-x: -1000px; 
   }
+}
+
+
+
+@media screen and (max-width: 1000px){
+
+*{
+ font-size:3vw;
+
+}
+.row1{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10%;
+}
+
+  .img{
+    width: 20vw;
+    height: 20vw;
+    font-size: 5rem;
+  }
+
+    .box{
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      column-gap: 5%;
+      padding: 0;
+      margin: 0;
+      width: 100vw;
+    }
+
+    button{
+      margin: 0;
+    
+    }
+    .section1 .air{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+      background-size: 100% 100px;
+      height: 100px; /* utiliser les 2 200px pour augmenter la hauteur des vagues */
+    }
+    
+
+}
+
+@media screen and (1000px < width < 2000px) {
+
+  .img{
+    width: 18vw;
+    height: 18vw;
+    font-size: 13rem;
+  }
+
+  .affichagePanier{
+    font-size: 2rem;
+  }
+
+
+#finalPrice{
+  font-size: 2rem;
+}
+ #finalNumber {
+font-size: 2rem;
+ } 
+
+
+
 }
