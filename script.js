@@ -116,6 +116,6 @@ function updateCartDisplay() {
     var basket = getBasket();
     for (var i = 0; i < basket.length; i++) {
         var productQuantity = basket[i].quantity;
-        document.getElementById("productQuantity_" + i).innerHTML = "Product " + i + " quantity :     " + productQuantity;
+        document.getElementById("productQuantity_" + i).innerHTML = "Product " + (i+1) + " quantity :     " + productQuantity;
     }
 }
