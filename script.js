@@ -119,3 +119,17 @@ function updateCartDisplay() {
         document.getElementById("productQuantity_" + i).innerHTML = "Product " + (i+1) + " quantity :     " + productQuantity;
     }
 }
+
+
+document.addEventListener("DOMContentLoaded", function() { 
+    
+    const closeBtn = document.querySelector('.closebtn');
+    closeBtn.addEventListener("click", function() {
+      var div = this.parentElement;
+      div.style.opacity = "0";
+      setTimeout(function() {
+        div.style.display = "none";
+      }, 600);
+    });
+    })
+     
